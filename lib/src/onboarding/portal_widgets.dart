@@ -2160,13 +2160,16 @@ class TermsAcceptanceTile extends StatelessWidget {
     return Semantics(
       checked: accepted,
       label: 'Acceptation des conditions',
-      child: Container(
-        decoration: BoxDecoration(
-          color: BizPulseDesignSystem.elevatedSurface(context),
-          borderRadius: BorderRadius.circular(BizPulseDesignSystem.radius),
-          border: Border.all(color: BizPulseDesignSystem.outlineColor(context)),
-        ),
-        child: CheckboxListTile(
+      child: Material(
+  color: BizPulseDesignSystem.elevatedSurface(context),
+  shape: RoundedRectangleBorder(
+    borderRadius: BorderRadius.circular(BizPulseDesignSystem.radius),
+    side: BorderSide(
+      color: BizPulseDesignSystem.outlineColor(context),
+    ),
+  ),
+  clipBehavior: Clip.antiAlias,
+  child: CheckboxListTile(
           key: const ValueKey('terms-acceptance'),
           value: accepted,
           onChanged: onChanged,
