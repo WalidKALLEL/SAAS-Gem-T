@@ -2168,12 +2168,19 @@ class TermsAcceptanceTile extends StatelessWidget {
       color: BizPulseDesignSystem.outlineColor(context),
     ),
   ),
-  clipBehavior: Clip.antiAlias,
-  child: CheckboxListTile(
-          key: const ValueKey('terms-acceptance'),
-          value: accepted,
-          onChanged: onChanged,
-          controlAffinity: ListTileControlAffinity.leading,
+  sed -i '2171,2176c\
+      child: Material(\
+        color: BizPulseDesignSystem.elevatedSurface(context),\
+        shape: RoundedRectangleBorder(\
+          borderRadius: BorderRadius.circular(BizPulseDesignSystem.radius),\
+          side: BorderSide(\
+            color: BizPulseDesignSystem.outlineColor(context),\
+          ),\
+        ),\
+        clipBehavior: Clip.antiAlias,' lib/src/onboarding/portal_widgets.dart
+
+dart format lib/src/onboarding/portal_widgets.dart
+flutter test test/player_onboarding_flow_test.dart
           contentPadding: const EdgeInsets.symmetric(horizontal: 8),
           title: Text(
             'J’accepte les conditions de participation.',
